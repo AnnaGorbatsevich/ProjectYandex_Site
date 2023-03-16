@@ -1,0 +1,57 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<form action="" method="post">
+
+    {% for i in products %}
+        <table class="my_table">
+
+        <tr class="my_row">
+            {% for j in i %}
+                {% if j != "Количество" and j != "id" and j != "prev_id"%}
+                {% if j == "Название" %}
+                      <td class="title" width="400px" bgcolor="#45afdd" align="center">{{j}}</td>
+                {% else %}
+                    <td class="title" width="400px" bgcolor="#45afdd" align="center">{{j}}</td>
+                {% endif %}
+
+            {% endif %}
+            {% endfor %}
+        </tr>
+        <tr class="my_row">
+            {% for j in i %}
+                {% if j != "Количество" and j != "id" and j != "prev_id" %}
+                {% if j == "Название" %}
+                      <td class="title" width="400px" bgcolor="#00b663" align="center"><a href=product{{i["prev_id"]}}>{{i[j]}}</a></td>
+                {% else %}
+                    <td class="title" width="400px" bgcolor="#00b663" align="center">{{i[j]}}
+                        {% if j == "Цена" %}
+                            Руб.
+                        {% endif %}
+                    </td>
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </tr>
+
+    </table>
+    <h1 style="font-weight: Normal">Количество: <input type="text" name=input{{i["id"]}} size="1" value={{i['Количество']}}></h1>
+        <br>
+
+
+
+
+    {% endfor %}
+
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div> <h1>Итог: {{sm}} Руб.</h1>
+    <a class="btn btn-success" href="/cleaning">Перейти к оплате</a>
+
+</form>
+{% endblock %}
+

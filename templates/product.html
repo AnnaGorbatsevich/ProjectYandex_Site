@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<form action="" method="post">
+    <h1>{{title}}</h1>
+    <p> Описание: {{description}}</p>
+    <p>Цена {{price}}</p>
+    {% for i in product %}
+        <select class="custom-select mr-sm-2" name={{i}} id={{i}} style="width: 150px">
+            <option class="btn btn-danger dropdown-toggle" selected disabled> {{i}}</option>
+        {% for j in product[i] %}
+            <option> {{j}}</option>
+            {% endfor %}
+
+</select>
+    {% endfor %}
+
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <br>
+    <p>
+
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+
+</form>
+{% endblock %}

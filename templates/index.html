@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<meta charset="UTF-8">
+<a class="btn btn-success" href="/add_product">Добавить продукт</a>
+<h1 align="center">Товары </h1>
+
+{% for product in products %}
+{% if product.description %}
+
+
+    <div class="table_container">
+        <table class="my_table" style="margin: auto">
+            <tr class="my_row">
+                <td class="title" width="600px" bgcolor="#00b663" align="center">Название</td>
+            </tr>
+            <tr class="my_row">
+
+                <td class="ordinary" bgcolor="#45afdd" align="center">{{ product.product }}</td>
+
+
+            </tr>
+
+        </table>
+
+        <table class="my_table" style="margin: auto">
+            <tr class="my_row">
+                <td class="title" width="600px" bgcolor="#00b663" align="center">Описание:</td>
+
+            </tr>
+            <tr class="my_row">
+                <td class="ordinary" bgcolor="#45afdd" align="center">{{ product.description }}</td>
+            </tr>
+
+        </table>
+        <br>
+        <p align="center">{{product.price}} Руб.
+            <a class="btn btn-success"  style="background-color: #ff0000; border-color: #da0983; margin: auto" href=product{{product.id}}>Заказать</a></p>
+
+    </div>
+<br>
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

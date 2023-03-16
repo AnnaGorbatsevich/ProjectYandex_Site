@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <p>
+        {{ form.product.label }}<br>
+        {{ form.product(class="form-control") }}<br>
+        {% for error in form.product.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+
+
+    <p>
+        {{ form.country.label }}<br>
+        {{ form.country(class="form-control") }}<br>
+        {% for error in form.country.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control") }}<br>
+        {% for error in form.description.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.price.label }}<br>
+        {{ form.price(class="form-control") }}<br>
+        {% for error in form.price.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <a class="btn btn-primary" onclick="show();" href="javascript:none();">+</a>
+    <script type="text/javascript">
+        var cnt = 0;
+        function show(){
+            cnt = cnt + 1;
+            let div = document.createElement('div');
+            div.innerHTML = "Название дополнительного параметра:";
+            p.append(div);
+
+            let input = document.createElement("input");
+            input.name = "name" + cnt;
+            input.style = "width: 400px";
+            input.innerHTML = "<br>";
+            p.append(input);
+
+
+
+            let br = document.createElement("br");
+            br.innerHTML = "<br>";
+            p.append(br);
+
+            let div2 = document.createElement('div');
+            div2.innerHTML = "Доступные вариации данного параметра(через пробел):";
+            p.append(div2)
+
+            let input2 = document.createElement("input");
+            input2.name = "2name" + cnt;
+            input2.style = "width: 800px";
+            input2.innerHTML = "<br>";
+            p.append(input2);
+
+
+            let br2 = document.createElement("br");
+            br2.innerHTML = "<br>";
+            p.append(br2);
+
+            let br3 = document.createElement("br");
+            br3.innerHTML = "<br>";
+            p.append(br3);
+
+        }
+
+        function none() { }
+    </script>
+    <p id="p">
+
+	</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+
+
+</form>
+{% endblock %}
