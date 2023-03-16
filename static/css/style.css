@@ -1,0 +1,30 @@
+td.title {
+    background-color: "#dddddd";
+    align: "center";
+    font-size: 14pt;
+    padding: 5px;
+}
+td.ordinary {
+    background-color: "#eeeeff";
+    align: "center";
+    font-size: 14pt;
+    padding: 5px;
+}
+h4 {
+    color: #aaaaaa;
+    padding: 20px;
+}
+p {
+    font-size: 14pt;
+}
+
+select#dropdown {
+    width: 200px;
+}
+
+
+span {
+    text-shadow:2px 2px 5px grey;
+}
+
+
